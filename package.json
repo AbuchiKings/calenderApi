@@ -1,0 +1,41 @@
+{
+  "name": "calenderapi",
+  "version": "1.0.0",
+  "description": "API for Calender app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:up": "npx migrate-mongo up",
+    "start": "npm run migrate:up && node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "calender",
+    "event"
+  ],
+  "author": "https://github.com/abuchikings",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-rate-limit": "^5.3.0",
+    "express-validator": "^6.12.0",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "migrate-mongo": "^8.2.3",
+    "mongoose": "^5.13.2",
+    "unique-string": "^2.0.0",
+    "validator": "^13.6.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
