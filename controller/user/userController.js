@@ -30,7 +30,7 @@ class UserController {
             verb: 'post',
             payload: {
                 client_id, client_secret,
-                redirect_uri: 'http://localhost:3000/',
+                redirect_uri: process.env.CB_URL || 'http://localhost:3000/',
                 grant_type: 'authorization_code',
                 code,
             }
