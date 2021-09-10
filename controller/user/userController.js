@@ -90,9 +90,10 @@ class UserController {
 
     static async getCalenderEvents(req, res, next) {
         try {
-            const dateTimeStart = new Date().toISOString();
-            let interval = Date.now() + 60 * 24 * 60 * 60 * 1000 // next 60 days
-            let dateTimeEnd = new Date(interval).toISOString();
+            let interval = Date.now() - 60 * 24 * 60 * 60 * 1000 // past 60 days
+            let netxInterval = Date.now() + 30 * 24 * 60 * 60 * 1000
+            const dateTimeStart = new Date(interval).toISOString()
+            let dateTimeEnd = new Date(netxInterval).toISOString();
 
             oAuth2Client.setCredentials({
                 refresh_token: req.user.refresh_token,
@@ -103,7 +104,7 @@ class UserController {
                 timeMin: dateTimeStart,
                 timeMax: dateTimeEnd
             })
-            return responseHandler(res, resp.data, next, 200, 'Calender events successfully retrieved', 1);
+            return responseHandler(res, resp.data.items, next, 200, 'Calender events successfully retrieved', 1);
         } catch (error) {
             return next(error);
         }
