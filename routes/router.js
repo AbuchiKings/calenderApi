@@ -1,6 +1,15 @@
 const { Router } = require('express');
 const router = Router();
 
+const auth = require('../middleware/auth')
+
+const User = require('../controller/user/userController')
+
+
+router.post('/api/v1/login', User.login, auth.signToken, auth.addToken);
+
+router.get('/api/v1/events', auth.verifyToken, User.getCalenderEvents);
+
 router.get('/', (req, res) => {
     res.status(200).json({
         status: "success",

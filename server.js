@@ -11,7 +11,7 @@ process.on('uncaughtException', (error) => {
 const server = http.createServer(app);
 
 server.listen(process.env.PORT || 8083, () => {
-    console.log('Server is running on port 8082');
+    console.log('Server is running on port 8083');
 });
 
 process.on('unhandledRejection', (error) => {
